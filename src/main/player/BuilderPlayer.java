@@ -13,7 +13,7 @@ public class BuilderPlayer extends Player {
 
     private void randomCol() {
         Random rand = new Random();
-        targetCol = rand.nextInt(7);
+        targetCol = rand.nextInt(Board.cols);
     }
 
     public BuilderPlayer(char counter, String name){

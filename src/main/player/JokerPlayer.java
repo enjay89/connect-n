@@ -15,7 +15,7 @@ public class JokerPlayer extends Player {
 
     public Move decideMove(Board board){
         Random rand = new Random();
-        int col = rand.nextInt(7);
+        int col = rand.nextInt(Board.cols);
         return new Move(col, counter);
     }
 }

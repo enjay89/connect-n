@@ -1,16 +1,16 @@
 package main;
 
-/* row = 6 [0,1,2,3,4,5]
-   column = 7 [0,1,2,3,4,5,6]
- */
-
 public class Board {
 
     char[][] tiles;
     Cell lastMove;
+    public static int rows;
+    public static int cols;
 
-    public Board() {
-        tiles = new char[6][7];
+    public Board(int rows, int cols){
+        tiles = new char[rows][cols];
+        Board.rows = rows;
+        Board.cols = cols;
     }
 
     public Cell getLastMove() {
@@ -19,7 +19,7 @@ public class Board {
 
     //lowest unoccupied tile in column. traverse backwards length of column and return index of first unoccupied
     private int getDeepest(int col){
-        for(int row = 5; row >= 0; row--){
+        for(int row = (rows - 1); row >= 0; row--){
             if(tiles[row][col] == '\0'){
                 return row;
             }
@@ -34,7 +34,7 @@ public class Board {
     }
 
     public boolean isValid (Move move){
-        if(move.col < 0  || move.col > 6 || getDeepest(move.col) == -1){
+        if(move.col < 0  || move.col > (cols - 1) || getDeepest(move.col) == -1){
             return false;
         }
         return true;
@@ -55,7 +55,7 @@ public class Board {
 
     public int columnSpaces(int col){
         int spaces = 0;
-        for(int i = 0; i < 6; i++){
+        for(int i = 0; i < rows; i++){
             char c = tiles[i][col];
             if(c != '\0'){
                 return spaces;
@@ -71,9 +71,9 @@ public class Board {
 
     void show(){
         System.out.println("");
-        for(int row = 0; row < 6; row++){
+        for(int row = 0; row < rows; row++){
             String line = "|";
-            for (int col = 0; col < 7; col++) {
+            for (int col = 0; col < cols; col++) {
                 line += renderCell(tiles[row][col]) + "|";
             }
             System.out.println(line);

@@ -15,7 +15,7 @@ public class PlumberPlayer extends Player {
     }
 
     public Move decideMove(Board board){
-        if(lastColumn == 6){
+        if(lastColumn == (Board.cols - 1)){
             lastColumn = 0;
         } else {
             lastColumn++;

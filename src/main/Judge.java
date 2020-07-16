@@ -16,7 +16,7 @@ public class Judge {
     boolean hasWon(char[][] board, char counter){
         //columns
         List<Character> colChars = new ArrayList<>();
-        for(int row = 0; row < 6; row++){
+        for(int row = 0; row < Board.rows; row++){
             colChars.add(board[row][game.board.lastMove.column]);
         }
         if(containsWin(colChars, counter)){
@@ -24,7 +24,7 @@ public class Judge {
         }
         //rows
         List<Character> rowChars = new ArrayList<>();
-        for(int col = 0; col < 7; col++){
+        for(int col = 0; col < Board.cols; col++){
             rowChars.add(board[game.board.lastMove.row][col]);
         }
         if(containsWin(rowChars, counter)){

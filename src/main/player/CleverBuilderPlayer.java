@@ -15,18 +15,18 @@ public class CleverBuilderPlayer extends Player {
     Random rando = new Random();
 
     private void randomCol(){
-        targetCol = rando.nextInt(7);
+        targetCol = rando.nextInt(Board.cols);
     }
 
     private void pickCol(Board board) {
         List<Integer> columns = new ArrayList<>();
-        for(int col = 0; col < 7; col++){
+        for(int col = 0; col < Board.cols; col++){
             if(board.columnSpaces(col) >= 4){
                 columns.add(col);
             }
         }
         targetCol = columns.isEmpty()
-                ? rando.nextInt(7)
+                ? rando.nextInt(Board.cols)
                 : columns.get(rando.nextInt(columns.size()));
     }
 

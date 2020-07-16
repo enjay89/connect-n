@@ -20,7 +20,7 @@ public class CopycatPlayer extends Player{
         int lastMove = board.getLastMove().getColumn();
         int targetCol = lastMove;
         if(board.isColumnFull(lastMove)){
-            targetCol = rand.nextInt(7);
+            targetCol = rand.nextInt(Board.cols);
         }
         return new Move(targetCol, counter);
     }

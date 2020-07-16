@@ -10,10 +10,10 @@ public class Game {
     private List<Player> players;
     private Judge judge;
 
-    public Game(List<Player> players){
+    public Game(List<Player> players, int winCounters, int rows, int cols){
         this.players = players;
-        this.board = new Board();
-        this.judge = new Judge(this);
+        this.board = new Board(rows, cols);
+        this.judge = new Judge(this, winCounters);
     }
 
     public void play(){
